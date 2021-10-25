@@ -43,25 +43,6 @@
     margin-bottom:  24px!important;
 }
 
-.from {
-    display: flex;
-    justify-content: space-between;
-    width : 100%;
-    display: flex;
-    align-items: center;
-    background-color: #f6f5ff;
-    font-size: 18px;
-    border-radius: 8px;
-    padding: 12px 20px 12px 16px;
-    margin-top: 8px;
-    border: 1px solid transparent;
-    transition: border .25s;
-    cursor: pointer;
-    font-family: 'Gilroy-Light'!important
-}
-.from:focus{
-    border: 1px solid #beccea;
-}
 .arrowdown{
     position: relative;
     width: 40px;

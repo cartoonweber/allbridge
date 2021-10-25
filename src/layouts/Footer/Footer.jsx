@@ -2,8 +2,6 @@ import userEvent from '@testing-library/user-event';
 import React, { useEffect, useRef, useState } from 'react';
 
 import 'react-multi-carousel/lib/styles.css';
-import { FaArrowDown, FaChevronDown, FaArrowRight } from 'react-icons/fa';
-import { BsArrowDown } from 'react-icons/bs'
 import './style.scss';
 
 

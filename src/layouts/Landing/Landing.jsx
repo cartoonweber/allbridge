@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { FaChevronDown } from 'react-icons/fa';
 import LandingItem from '../../components/LandingItem/LandingItem';
+import TokenDialog from '../../components/TokenDialog/TokenDialog'
+import AssetDialog from '../../components/AssetDialog/AssetDialog'
 import './style.scss';
 
 
@@ -29,13 +31,7 @@ export default function Landing() {
                     <div className="main">
                         <div className="detail">
                             From
-                            <button className="from">
-                                <div style={{ display: "flex", alignItems: "center" }}>
-                                    <img src="solana.png" width="24" style={{ marginRight: "12px" }} />
-                                    <span>Solana</span>
-                                </div>
-                                <FaChevronDown />
-                            </button>
+                            <TokenDialog index = {6}/>
                         </div>
                         <div className="arrowdown">
                             <span className="circle">
@@ -45,23 +41,11 @@ export default function Landing() {
                         </div>
                         <div className="detail">
                             To
-                            <button className="from">
-                                <div style={{ display: "flex", alignItems: "center" }}>
-                                    <img src="polygon.png" width="24" style={{ marginRight: "12px" }} />
-                                    <span>Polygon (Matic)</span>
-                                </div>
-                                <FaChevronDown />
-                            </button>
+                            <TokenDialog index = {5}/>
                         </div>
                         <div className="detail">
                             Choose asset
-                            <button className="from">
-                                <div style={{ display: "flex", alignItems: "center" }}>
-                                    <img src="apys.png" width="24" style={{ marginRight: "12px" }} />
-                                    <span>APYS</span>
-                                </div>
-                                <FaChevronDown />
-                            </button>
+                            <AssetDialog index = {0}/>
                         </div>
                         <button className="connect">Connect Wallet</button>
                     </div>
