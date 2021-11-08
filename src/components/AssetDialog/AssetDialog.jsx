@@ -13,16 +13,17 @@ import { BsSearch, BsCheckCircle } from 'react-icons/bs'
 import './style.scss';
 import styled from 'styled-components'
 
-const tokens = ['APYS', 'KRW', '1ML', 'ABR', 'CFI', 'DAI.e', 'HAPI', 'HGET','IF','MAI(miMATIC)','SBR', 'SOL', 'USDC','USDC.e'];
-const imgs = ['apys.png', 'krw.png', 'lml.png', 'abr.png', 'cfi.png', 'dai.png', 'hapi.png', 'hget.png','if.png','mai.png','sbr.png', 'sol.png', 'usdc.png','usdc.png']
+const tokens = ['APYS', 'KRW', 'GGG', '1ML', 'ABR', 'CFI', 'DAI.e', 'HAPI', 'HGET', 'IF', 'MAI(miMATIC)', 'SBR', 'SOL', 'USDC', 'USDC.e'];
+const imgs = ['apys.png', 'krw.png', 'ggg.png', 'lml.png', 'abr.png', 'cfi.png', 'dai.png', 'hapi.png', 'hget.png', 'if.png', 'mai.png', 'sbr.png', 'sol.png', 'usdc.png', 'usdc.png']
 
 function SimpleDialog(props) {
-    const { onClose, selectedValue, open } = props;
+    const { onClose, selectedValue, open, setAsset } = props;
     const [criteria, setCriteria] = useState('');
 
     const handleClose = () => {
         onClose(selectedValue);
         setCriteria('');
+        setAsset(tokens[selectedValue]);
     };
 
     const handleListItemClick = (value) => {
@@ -54,20 +55,20 @@ function SimpleDialog(props) {
                         onChange={(e) => { setCriteria(e.target.value) }}
                     />
                     <List sx={{ pt: "30px" }} >
-                    <div className = "assettype">AVALANCHE > POLYGON (MATIC)</div>
+                        <div className="assettype">AVALANCHE > POLYGON (MATIC)</div>
                         {tokens.map((token, i) => {
                             if (!token.includes(criteria)) return;
                             return <>
-                            {i === 2 && <div className = "assettype" style = {{paddingTop : "40px"}}>OTHER ASSETS</div>}
-                            <button button onClick={() => handleListItemClick(i)} key={token} className="listitem" style={{ background: i === selectedValue ? "linear-gradient(270deg,#b8b5f838 0,#fff 100%)" : "" }}>
-                                <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-                                    <div style={{ display: "flex", alignItems: "center" }}>
-                                        <img src={imgs[i]} width={24} style={{ paddingRight: "16px" }} />
-                                        <div className="listitemtext">{token}</div>
+                                {i === 2 && <div className="assettype" style={{ paddingTop: "40px" }}>OTHER ASSETS</div>}
+                                <button button onClick={() => handleListItemClick(i)} key={token} className="listitem" style={{ background: i === selectedValue ? "linear-gradient(270deg,#b8b5f838 0,#fff 100%)" : "" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                                        <div style={{ display: "flex", alignItems: "center" }}>
+                                            <img src={imgs[i]} width={24} style={{ paddingRight: "16px" }} />
+                                            <div className="listitemtext">{token}</div>
+                                        </div>
+                                        {i === selectedValue && <BsCheckCircle style={{ fontSize: "20px", paddingRight: "20px", color: "#8c86f5" }} />}
                                     </div>
-                                    {i === selectedValue && <BsCheckCircle style={{ fontSize: "20px", paddingRight: "20px", color: "#8c86f5" }} />}
-                                </div>
-                            </button>
+                                </button>
                             </>
                         })}
                     </List>
@@ -83,7 +84,7 @@ SimpleDialog.propTypes = {
     selectedValue: PropTypes.string.isRequired,
 };
 
-export default function SimpleDialogDemo({index}) {
+export default function SimpleDialogDemo({ index, setAsset }) {
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(index);
 
@@ -109,6 +110,7 @@ export default function SimpleDialogDemo({index}) {
                 selectedValue={selectedValue}
                 open={open}
                 onClose={handleClose}
+                setAsset = {setAsset}
             />
         </div>
     );

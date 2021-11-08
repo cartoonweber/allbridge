@@ -17,7 +17,7 @@ const tokens = ['Avalanche', 'Binance Smart Chain', 'Celo', 'Ethereum', 'Houbi E
 const imgs = ['avalanche.png', 'bsc.png', 'celo.svg', 'ethereum.png', 'houbi.png', 'polygon.png', 'solana.png']
 
 function SimpleDialog(props) {
-    const { onClose, selectedValue, open } = props;
+    const { onClose, selectedValue, open, setToken } = props;
     const [criteria, setCriteria] = useState('');
 
     const handleClose = () => {
@@ -79,7 +79,7 @@ SimpleDialog.propTypes = {
     selectedValue: PropTypes.string.isRequired,
 };
 
-export default function SimpleDialogDemo({index}) {
+export default function SimpleDialogDemo({ index, setToken }) {
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(index);
 
@@ -90,6 +90,7 @@ export default function SimpleDialogDemo({index}) {
     const handleClose = (value) => {
         setOpen(false);
         setSelectedValue(value);
+        setToken(tokens[value]);
     };
 
     return (
@@ -105,6 +106,7 @@ export default function SimpleDialogDemo({index}) {
                 selectedValue={selectedValue}
                 open={open}
                 onClose={handleClose}
+                setToken={setToken}
             />
         </div>
     );

@@ -136,6 +136,42 @@ span>input{
     height : 90px;
     
 }
+.article{
+    color: #8d89f2;
+    border: 1px solid #8d89f2;
+    border-radius: 7px;
+    padding: 24px;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+.article > div:nth-child(1)
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size:  14px;
+}
+.article > div:nth-child(2)
+{
+    font-size: 12px;
+    font-weight: 200;
+}
+.bridgefee{
+    display: grid;
+    border: 1px solid #b8b5f8;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    padding: 24px;
+    row-gap: 13px;
+}
+.bridgefee > div{
+    display: flex;
+    justify-content: space-between;
+}
+.main>div>span{
+    font: 900 15px'Gilroy-ExtraBold' !important;
+}
 @media screen and (max-width: 800px) {
     .logo{
         height: 42px!important;
